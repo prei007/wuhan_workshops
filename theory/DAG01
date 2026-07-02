@@ -1,0 +1,35 @@
+flowchart LR
+
+%% Conditions
+Context[Essay assignment]
+Feedback[AI Feedback Specificity]
+Motivation[Intrinsic Motivation]
+Knowledge[Prior Knowledge]
+
+%% Hidden mechanism states
+Visible(Criteria Visibility)
+Gap(Discrepancy Recognised)
+Revision(Revision Strategy)
+
+%% Evidence
+Behaviour((Revision Behaviour))
+Quality((Writing Quality))
+
+Context --> Revision
+Feedback --> Visible
+Motivation --> Revision
+Knowledge --> Gap
+
+Visible --> Gap
+Gap --> Revision
+
+Revision --> Behaviour
+Behaviour --> Quality
+
+classDef condition fill:#D6EAF8,stroke:#1F618D;
+classDef mechanism fill:#FCF3CF,stroke:#B7950B;
+classDef evidence fill:#D5F5E3,stroke:#1E8449;
+
+class Context,Feedback,Motivation,Knowledge condition;
+class Visible,Gap,Revision mechanism;
+class Behaviour,Quality evidence;
