@@ -1,0 +1,23 @@
+flowchart TD
+
+subgraph Context
+C1[Essay writing assignment]
+C2[AI feedback available]
+end
+
+Student[Student]
+AI[AI Assistant]
+Essay[Essay Draft]
+
+Visible(Criteria become visible)
+Gap(Discrepancy recognised)
+Revision(Revision strategy changes)
+
+AI -->|generates feedback| Visible
+Student -->|compares draft with feedback| Gap
+Visible -->|supports| Gap
+Gap -->|initiates| Revision
+Revision -->|changes| Essay
+
+C1 -.-> Student
+C2 -.-> AI
