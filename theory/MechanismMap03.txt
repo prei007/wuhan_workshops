@@ -1,0 +1,37 @@
+flowchart TD
+
+subgraph Context
+C1[Essay writing assignment]
+C2[AI feedback available]
+end
+
+Student[Student]
+AI[AI Assistant]
+Draft[Essay Draft]
+Motivation{{Intrinsic motivation}}
+PriorKnowledge{{Prior knowledge}}
+
+Visible(Criteria become visible)
+Gap(Discrepancy recognised)
+Revision(Revision strategy)
+AI -->|generates feedback| Visible
+Student -->|compares draft with feedback| Gap
+Visible -->|supports| Gap
+Gap -->|initiates| Revision
+Revision -->|changes| Draft
+Motivation -.-> Student
+PriorKnowledge -.-> Student
+Motivation -.->|persistence| Revision
+PriorKnowledge -.->|supports| Gap
+C1 -.-> Student
+C2 -.-> AI
+%% Styles
+classDef context fill:#F8F8F8,stroke:#888,stroke-dasharray: 5 5;
+classDef entity fill:#D6EAF8,stroke:#1F618D;
+classDef attribute fill:#E8DAEF,stroke:#7D3C98;
+classDef state fill:#FCF3CF,stroke:#B7950B;
+
+class C1,C2 context;
+class Student,AI,Draft entity;
+class Motivation,PriorKnowledge attribute;
+class Visible,Gap,Revision state;
