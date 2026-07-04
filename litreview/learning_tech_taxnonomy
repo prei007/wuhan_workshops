@@ -1,0 +1,156 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix lt:   <https://example.org/codebook/learning-technology/> .
+
+lt:TechnologyTypeScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Learning technology type codebook"@en ;
+    skos:definition "A three-level coding scheme for classifying learning technologies in literature reviews and content analysis."@en ;
+    skos:hasTopConcept lt:MultimediaTechnology ,
+                       lt:SimulationTechnology ,
+                       lt:CollaborativeTechnology .
+
+# -------------------------
+# Level 1: Broad families
+# -------------------------
+
+lt:MultimediaTechnology
+    a skos:Concept ;
+    skos:topConceptOf lt:TechnologyTypeScheme ;
+    skos:prefLabel "Multimedia technology"@en ;
+    skos:definition "Learning technologies that combine multiple media forms such as text, image, audio, animation, or video."@en ;
+    skos:narrower lt:InstructionalVideo ,
+                  lt:InteractiveMultimedia .
+
+lt:SimulationTechnology
+    a skos:Concept ;
+    skos:topConceptOf lt:TechnologyTypeScheme ;
+    skos:prefLabel "Simulation technology"@en ;
+    skos:definition "Learning technologies that model systems, processes, environments, or practices for exploration or training."@en ;
+    skos:narrower lt:VirtualLaboratory ,
+                  lt:ScenarioBasedSimulation .
+
+lt:CollaborativeTechnology
+    a skos:Concept ;
+    skos:topConceptOf lt:TechnologyTypeScheme ;
+    skos:prefLabel "Collaborative technology"@en ;
+    skos:definition "Learning technologies that support communication, coordination, shared artefact creation, or collaborative knowledge building."@en ;
+    skos:narrower lt:DiscussionPlatform ,
+                  lt:SharedWorkspace .
+
+# -------------------------
+# Level 2: Technology types
+# -------------------------
+
+lt:InstructionalVideo
+    a skos:Concept ;
+    skos:broader lt:MultimediaTechnology ;
+    skos:prefLabel "Instructional video"@en ;
+    skos:definition "Video-based learning resources designed to explain, demonstrate, or contextualise concepts and procedures."@en ;
+    skos:narrower lt:LectureCapture ,
+                  lt:DemonstrationVideo .
+
+lt:InteractiveMultimedia
+    a skos:Concept ;
+    skos:broader lt:MultimediaTechnology ;
+    skos:prefLabel "Interactive multimedia"@en ;
+    skos:definition "Multimedia resources that require learner interaction, such as selecting, manipulating, navigating, or responding."@en ;
+    skos:narrower lt:InteractiveAnimation ,
+                  lt:BranchingMultimedia .
+
+lt:VirtualLaboratory
+    a skos:Concept ;
+    skos:broader lt:SimulationTechnology ;
+    skos:prefLabel "Virtual laboratory"@en ;
+    skos:definition "A simulation environment that allows learners to conduct or observe laboratory-like investigations digitally."@en ;
+    skos:narrower lt:ChemistryVirtualLab ,
+                  lt:PhysicsVirtualLab .
+
+lt:ScenarioBasedSimulation
+    a skos:Concept ;
+    skos:broader lt:SimulationTechnology ;
+    skos:prefLabel "Scenario-based simulation"@en ;
+    skos:definition "A simulation organised around a realistic problem, case, role, or professional scenario."@en ;
+    skos:narrower lt:VirtualInternship ,
+                  lt:RolePlaySimulation .
+
+lt:DiscussionPlatform
+    a skos:Concept ;
+    skos:broader lt:CollaborativeTechnology ;
+    skos:prefLabel "Discussion platform"@en ;
+    skos:definition "A digital environment for asynchronous or synchronous discussion among learners and teachers."@en ;
+    skos:narrower lt:Forum ,
+                  lt:ChatTool .
+
+lt:SharedWorkspace
+    a skos:Concept ;
+    skos:broader lt:CollaborativeTechnology ;
+    skos:prefLabel "Shared workspace"@en ;
+    skos:definition "A digital environment where learners jointly create, edit, organise, or annotate shared artefacts."@en ;
+    skos:narrower lt:CollaborativeDocument ,
+                  lt:SharedWhiteboard .
+
+# -------------------------
+# Level 3: Specific codes
+# -------------------------
+
+lt:LectureCapture
+    a skos:Concept ;
+    skos:broader lt:InstructionalVideo ;
+    skos:prefLabel "Lecture capture"@en .
+
+lt:DemonstrationVideo
+    a skos:Concept ;
+    skos:broader lt:InstructionalVideo ;
+    skos:prefLabel "Demonstration video"@en .
+
+lt:InteractiveAnimation
+    a skos:Concept ;
+    skos:broader lt:InteractiveMultimedia ;
+    skos:prefLabel "Interactive animation"@en .
+
+lt:BranchingMultimedia
+    a skos:Concept ;
+    skos:broader lt:InteractiveMultimedia ;
+    skos:prefLabel "Branching multimedia"@en .
+
+lt:ChemistryVirtualLab
+    a skos:Concept ;
+    skos:broader lt:VirtualLaboratory ;
+    skos:prefLabel "Chemistry virtual laboratory"@en .
+
+lt:PhysicsVirtualLab
+    a skos:Concept ;
+    skos:broader lt:VirtualLaboratory ;
+    skos:prefLabel "Physics virtual laboratory"@en .
+
+lt:VirtualInternship
+    a skos:Concept ;
+    skos:broader lt:ScenarioBasedSimulation ;
+    skos:prefLabel "Virtual internship simulator"@en ;
+    skos:altLabel "Simulated internship"@en ;
+    skos:definition "A scenario-based simulation in which learners act in a professional role and complete authentic tasks."@en .
+
+lt:RolePlaySimulation
+    a skos:Concept ;
+    skos:broader lt:ScenarioBasedSimulation ;
+    skos:prefLabel "Role-play simulation"@en .
+
+lt:Forum
+    a skos:Concept ;
+    skos:broader lt:DiscussionPlatform ;
+    skos:prefLabel "Forum"@en .
+
+lt:ChatTool
+    a skos:Concept ;
+    skos:broader lt:DiscussionPlatform ;
+    skos:prefLabel "Chat tool"@en .
+
+lt:CollaborativeDocument
+    a skos:Concept ;
+    skos:broader lt:SharedWorkspace ;
+    skos:prefLabel "Collaborative document"@en .
+
+lt:SharedWhiteboard
+    a skos:Concept ;
+    skos:broader lt:SharedWorkspace ;
+    skos:prefLabel "Shared whiteboard"@en .
