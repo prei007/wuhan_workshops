@@ -1,0 +1,77 @@
+flowchart LR
+
+%%====================================================
+%% CONTEXT
+%%====================================================
+
+subgraph CONTEXT["Context (conditions that enable or constrain the mechanism)"]
+C1[Context factor 1]
+C2[Context factor 2]
+end
+
+%%====================================================
+%% ENTITIES
+%%====================================================
+
+E1[Entity 1]
+E2[Entity 2]
+E3[Entity 3]
+
+%%====================================================
+%% ENTITY ATTRIBUTES / DISPOSITIONS
+%%====================================================
+
+A1{{Attribute / Disposition}}
+A2{{Attribute / Disposition}}
+
+A1 -.-> E1
+A2 -.-> E2
+
+%%====================================================
+%% MECHANISM STATES
+%%====================================================
+
+S1(Mechanism State)
+S2(Mechanism State)
+S3(Mechanism State)
+
+%%====================================================
+%% ACTIVITIES
+%%====================================================
+
+E1 -->|activity| S1
+S1 -->|activity| S2
+E2 -->|activity| S2
+S2 -->|activity| S3
+E3 -->|activity| S3
+
+%%====================================================
+%% CONTEXT MODULATION
+%%====================================================
+
+C1 -.->|enables / constrains| S1
+C2 -.->|enables / constrains| S2
+
+%%====================================================
+%% OUTCOME
+%%====================================================
+
+O((Outcome State))
+
+S3 -->|produces| O
+
+%%====================================================
+%% STYLES
+%%====================================================
+
+classDef context fill:#F8F8F8,stroke:#777,stroke-dasharray:5 5;
+classDef entity fill:#D6EAF8,stroke:#1F618D;
+classDef attribute fill:#E8DAEF,stroke:#7D3C98;
+classDef state fill:#FCF3CF,stroke:#B7950B;
+classDef outcome fill:#D5F5E3,stroke:#1E8449;
+
+class C1,C2 context;
+class E1,E2,E3 entity;
+class A1,A2 attribute;
+class S1,S2,S3 state;
+class O outcome;
